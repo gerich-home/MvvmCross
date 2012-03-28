@@ -8,6 +8,9 @@ To learn about what MVVM is... please look at this introduction from Infragistic
 
 To see how MvvmCross provides ViewModels, Views and bindings, see the tutorial steps in the wiki - https://github.com/slodge/MvvmCross/wiki/_pages
 
+You have to install Google APIs order to build library for Android.
+See, how to do it here: http://docs.xamarin.com/android/tutorials/Maps_and_Location/Part_2_-_Maps_API
+
 # About MvvmCross...
 
 This project was born from:
