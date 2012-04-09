@@ -19,6 +19,8 @@ namespace Cirrious.MvvmCross.ViewModels
     public abstract class MvxNotifyPropertyChanged
         : MvxMainThreadDispatchingObject, INotifyPropertyChanged
     {
+        private const string WrongExpressionMessage = "Wrong expression\nshould be called as\nFirePropertyChange(() => PropertyName);";
+
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,20 +37,41 @@ namespace Cirrious.MvvmCross.ViewModels
             var memberExpression = property.Body as MemberExpression;
             if (memberExpression == null)
             {
-                throw new ArgumentException("Wrong expression\nshould be called as\nFirePropertyChange(() => PropertyName);", "property");
+                throw new ArgumentException(WrongExpressionMessage, "property");
             }
 
             var member = memberExpression.Member as PropertyInfo;
             if (member == null)
             {
-                throw new ArgumentException("Wrong expression\nshould be called as\nFirePropertyChange(() => PropertyName);", "property");
+                throw new ArgumentException(WrongExpressionMessage, "property");
+            }
+
+            if (member.DeclaringType == null)
+            {
+                throw new ArgumentException(WrongExpressionMessage, "property");
+            }
+
+#if NETFX_CORE
+            if (!member.DeclaringType.GetTypeInfo().IsAssignableFrom(GetType().GetTypeInfo()))
+            {
+                throw new ArgumentException(WrongExpressionMessage, "property");
+            }
+
+            if (member.GetMethod.IsStatic)
+            {
+                throw new ArgumentException(WrongExpressionMessage, "property");
+            }
+#else
+            if (!member.DeclaringType.IsAssignableFrom(GetType()))
+            {
+                throw new ArgumentException(WrongExpressionMessage, "property");
             }
 
             if (member.GetGetMethod(true).IsStatic)
             {
-                throw new ArgumentException("Wrong expression\nshould be called as\nFirePropertyChange(() => PropertyName);", "property");
+                throw new ArgumentException(WrongExpressionMessage, "property");
             }
-
+#endif
             FirePropertyChanged(member.Name);
         }
 
