@@ -13,15 +13,13 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System;
 using System.Reflection;
-using Cirrious.MvvmCross.Property;
+using Cirrious.MvvmCross.ExtensionMethods;
 
 namespace Cirrious.MvvmCross.ViewModels
 {
     public abstract class MvxNotifyPropertyChanged
         : MvxMainThreadDispatchingObject, INotifyPropertyChanged
     {
-        private const string WrongExpressionMessage = "Wrong expression\nshould be called as\nFirePropertyChange(() => PropertyName);";
-
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,32 +28,7 @@ namespace Cirrious.MvvmCross.ViewModels
 
         protected void FirePropertyChanged<T>(Expression<Func<T>> property)
         {
-            string name;
-
-            try
-            {
-                name = MvxPropertyUtils.PropertyName<T>(property);
-            }
-            catch (Exception e)
-            {
-                throw new ArgumentException(WrongExpressionMessage, "property");
-            }
-
-            var member = (property.Body as MemberExpression).Member as PropertyInfo;
-
-
-#if NETFX_CORE
-            if (!member.DeclaringType.GetTypeInfo().IsAssignableFrom(GetType().GetTypeInfo()))
-            {
-                throw new ArgumentException(WrongExpressionMessage, "property");
-            }
-#else
-            if (!member.DeclaringType.IsAssignableFrom(GetType()))
-            {
-                throw new ArgumentException(WrongExpressionMessage, "property");
-            }
-#endif
-
+            var name = this.GetPropertyNameFromExpression(property);
             FirePropertyChanged(name);
         }
 
