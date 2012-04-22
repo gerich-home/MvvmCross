@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -16,7 +16,7 @@
     <AndroidSupportedAbis>armeabi</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
-    <TargetFrameworkVersion>v1.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,12 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
-    <Reference Include="Mono.Android.GoogleMaps" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Mono.Android.GoogleMaps" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Android\Interfaces\IMvxAndroidCurrentTopActivity.cs" />
@@ -352,12 +352,6 @@
   <ItemGroup>
     <Folder Include="Android\Platform\SoundEffects\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Library\Newtonsoft.Json\Newtonsoft.Json\Newtonsoft.Json.MonoDroid.csproj">
-      <Project>{E6C3413C-919B-486D-8B6C-225CBD921B98}</Project>
-      <Name>Newtonsoft.Json.MonoDroid</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -366,4 +360,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\Newtonsoft.Json\Newtonsoft.Json\Newtonsoft.Json.MonoDroid.csproj">
+      <Project>{E6C3413C-919B-486D-8B6C-225CBD921B98}</Project>
+      <Name>Newtonsoft.Json.MonoDroid</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

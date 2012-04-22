@@ -10,8 +10,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Cirrious.MvvmCross.Binding</RootNamespace>
     <AssemblyName>Cirrious.MvvmCross.Binding.Touch</AssemblyName>
-    <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -132,6 +130,14 @@
     <Compile Include="Touch\Target\MvxUISliderValueTargetBinding.cs" />
     <Compile Include="Touch\Target\MvxUIButtonTitleTargetBinding.cs" />
   </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Cirrious.MvvmCross\Cirrious.MvvmCross.Touch.csproj">
       <Project>{E042EDD9-E89D-4928-BF4D-27F0FC29CEDA}</Project>
@@ -142,12 +148,4 @@
       <Name>Newtonsoft_Json_MonoTouch</Name>
     </ProjectReference>
   </ItemGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <ItemGroup />
 </Project>
