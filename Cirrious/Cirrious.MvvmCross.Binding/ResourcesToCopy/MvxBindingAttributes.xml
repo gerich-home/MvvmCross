@@ -6,6 +6,9 @@
   <declare-styleable name="MvxBindableListView">
     <attr name="MvxItemTemplate" format="string"/>
   </declare-styleable>
+<!--  <declare-styleable name="MvxBindableGridView">
+    <attr name="MvxItemTemplate" format="string"/>
+  </declare-styleable>-->
   <item type="id" name="MvxBindingTagUnique"/>
   <item type="id" name="MvxBindableListItemTagUnique"/>
   <declare-styleable name="MvxHttpImageView">
