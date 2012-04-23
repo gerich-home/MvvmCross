@@ -48,9 +48,8 @@
       <HintPath>..\..\SocialStorm\packages\SilverlightToolkitWP.4.2011.8.17\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework" />
-    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Sample - CustomerManagement\CustomerManagement\CustomerManagement.WindowsPhone\packages\Newtonsoft.Json.4.0.8\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\MvvmCrossLibs\packages\Newtonsoft.Json.4.5.2\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Windows" />
@@ -61,7 +60,7 @@
     <Reference Include="System.Net" />
     <Reference Include="mscorlib.extensions" />
     <Reference Include="WriteableBitmapExWinPhone, Version=0.9.8.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\Sample - CustomerManagement\CustomerManagement\CustomerManagement.WindowsPhone\packages\WriteableBitmapEx.0.9.8.6\lib\sl4-wp71\WriteableBitmapExWinPhone.dll</HintPath>
+      <HintPath>..\..\MvvmCrossLibs\packages\WriteableBitmapEx.0.9.8.6\lib\sl4-wp71\WriteableBitmapExWinPhone.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +85,9 @@
     <Compile Include="Commands\MvxSimpleSelectionChangedEventArgs.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\Color\MvxBaseColorConverter.cs" />
+    <Compile Include="Converters\Color\MvxColor.cs" />
+    <Compile Include="Converters\Color\MvxRGBIntColorConverter.cs" />
     <Compile Include="Converters\MvxBaseValueConverter.cs">
       <SubType>Code</SubType>
     </Compile>
